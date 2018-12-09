@@ -1,4 +1,4 @@
-package com.newvoicemedia.interview;
+package com.newvoicemedia.interview.game;
 
 import org.junit.jupiter.api.Test;
 

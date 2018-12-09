@@ -1,4 +1,4 @@
-package com.newvoicemedia.interview;
+package com.newvoicemedia.interview.game;
 
 public class Piece
 {
