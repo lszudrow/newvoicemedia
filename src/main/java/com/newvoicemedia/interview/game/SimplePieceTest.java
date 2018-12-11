@@ -8,20 +8,21 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static com.newvoicemedia.interview.game.Direction.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 @DisplayName( "Piece" )
-public class PieceTest
+public class SimplePieceTest
 {
 
-    private Piece piece;
+    private SimplePiece piece;
 
 
     @BeforeEach
     void setUp()
     {
-        piece = new Piece();
+        piece = new SimplePiece();
     }
 
 
@@ -43,8 +44,6 @@ public class PieceTest
     @DisplayName( "should turn multiple times and ends with last turn as direction" )
     public void shouldTurnMultipleTimes( Direction firstTurn, Direction secondTurn, Direction thirdTurn )
     {
-        Piece piece = new Piece();
-
         piece.turn( firstTurn );
         piece.turn( secondTurn );
         piece.turn( thirdTurn );
@@ -58,15 +57,13 @@ public class PieceTest
 
     private static Stream<Arguments> getDirection()
     {
-        return Stream.of( Arguments.of( Direction.EAST ), Arguments.of( Direction.WEST ), Arguments.of( Direction.NORTH ),
-            Arguments.of( Direction.SOUTH ) );
+        return Stream.of( Arguments.of( EAST ), Arguments.of( WEST ), Arguments.of( NORTH ), Arguments.of( SOUTH ) );
     }
 
 
     private static Stream<Arguments> getDirections()
     {
-        return Stream.of( Arguments.of( Direction.EAST, Direction.WEST, Direction.NORTH ),
-            Arguments.of( Direction.SOUTH, Direction.NORTH, Direction.WEST ), Arguments.of( Direction.EAST, Direction.SOUTH, Direction.EAST ),
-            Arguments.of( Direction.NORTH, Direction.WEST, Direction.SOUTH ) );
+        return Stream.of( Arguments.of( EAST, WEST, NORTH ), Arguments.of( SOUTH, NORTH, WEST ), Arguments.of( EAST, SOUTH, EAST ),
+            Arguments.of( NORTH, WEST, SOUTH ) );
     }
 }
