@@ -22,6 +22,6 @@ enum Direction
     @Override
     public String toString()
     {
-        return "Direction{" + "direction='" + direction + '\'' + '}';
+        return direction;
     }
 }

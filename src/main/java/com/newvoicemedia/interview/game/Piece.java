@@ -1,42 +1,32 @@
 package com.newvoicemedia.interview.game;
 
 public class Piece
+    implements PieceInt
 {
     private Direction direction;
 
 
-    Piece()
+    Piece( Direction direction )
     {
-        direction = Direction.NORTH;
+        this.direction = direction;
     }
 
 
-    public void turnNorth()
+    public Piece()
     {
-        direction = Direction.NORTH;
+        this( Direction.NORTH );
     }
 
 
-    Direction direction()
+    @Override
+    public void turn( Direction direction )
+    {
+        this.direction = direction;
+    }
+
+
+    public Direction direction()
     {
         return direction;
-    }
-
-
-    public void turnSouth()
-    {
-        direction = Direction.SOUTH;
-    }
-
-
-    public void turnEast()
-    {
-        direction = Direction.EAST;
-    }
-
-
-    public void turnWest()
-    {
-        direction = Direction.WEST;
     }
 }
