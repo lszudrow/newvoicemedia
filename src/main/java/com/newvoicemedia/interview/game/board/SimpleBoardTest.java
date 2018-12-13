@@ -1,5 +1,8 @@
-package com.newvoicemedia.interview.game;
+package com.newvoicemedia.interview.game.board;
 
+import com.newvoicemedia.interview.game.Direction;
+import com.newvoicemedia.interview.game.piece.Piece;
+import com.newvoicemedia.interview.game.piece.SimplePiece;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,27 +17,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @DisplayName( "Board" )
-public class BoardTest
+class SimpleBoardTest
 {
-    public static final int BOARD_SIZE = 5;
-    private Board board;
+    private static final int DEFAULT_SIZE = 5;
+    private SimpleBoard simpleBoard;
     private Piece piece;
 
 
     @BeforeEach
     void setUp()
     {
-        board = new Board( BOARD_SIZE );
+        simpleBoard = new SimpleBoard();
         piece = new SimplePiece();
-        board.putPiece( piece );
     }
 
 
     @Test
     @DisplayName( "should have fixed size" )
-    public void shouldHaveSize()
+    void shouldHaveSize()
     {
-        assertThat( board.size() ).isEqualTo( BOARD_SIZE );
+        assertThat( simpleBoard.size() ).isEqualTo( DEFAULT_SIZE );
     }
 
 
@@ -42,7 +44,7 @@ public class BoardTest
     @DisplayName( "should allow player to put piece on it" )
     void shouldAllowToPutAPieceOnIt()
     {
-        assertThat( board.getPiece() ).isEqualTo( piece );
+        assertThat( simpleBoard.piece() ).isEqualTo( piece );
     }
 
 
@@ -53,22 +55,22 @@ public class BoardTest
     {
         movePieceToTheMiddleOfTheBoard();
 
-        board.getPiece()
-             .turn( direction );
-        board.movePiece();
-        assertThat( board.getPosition()
-                         .toString() ).isEqualTo( expectedPosition );
+        simpleBoard.piece()
+                   .turn( direction );
+        simpleBoard.movePiece();
+        assertThat( simpleBoard.piecePosition()
+                               .toString() ).isEqualTo( expectedPosition );
     }
 
 
     private void movePieceToTheMiddleOfTheBoard()
     {
-        board.movePiece();
-        board.movePiece();
-        board.getPiece()
-             .turn( EAST );
-        board.movePiece();
-        board.movePiece();
+        simpleBoard.movePiece();
+        simpleBoard.movePiece();
+        simpleBoard.piece()
+                   .turn( EAST );
+        simpleBoard.movePiece();
+        simpleBoard.movePiece();
     }
 
 

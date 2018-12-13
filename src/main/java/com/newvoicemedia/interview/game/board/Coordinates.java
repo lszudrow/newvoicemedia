@@ -1,15 +1,15 @@
-package com.newvoicemedia.interview.game;
+package com.newvoicemedia.interview.game.board;
 
-class Coordinate
+public class Coordinates
 {
-    public static final String SPACE_CHARACTER = " ";
+    private static final String SEPARATOR = " ";
 
     private Integer x;
 
     private Integer y;
 
 
-    Coordinate( Integer x, Integer y )
+    Coordinates( Integer x, Integer y )
     {
         this.x = x;
         this.y = y;
@@ -44,7 +44,7 @@ class Coordinate
     public String toString()
     {
         return new StringBuilder().append( x )
-                                  .append( SPACE_CHARACTER )
+                                  .append( SEPARATOR )
                                   .append( y )
                                   .toString();
     }

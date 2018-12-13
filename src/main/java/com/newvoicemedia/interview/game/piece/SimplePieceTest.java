@@ -1,5 +1,6 @@
-package com.newvoicemedia.interview.game;
+package com.newvoicemedia.interview.game.piece;
 
+import com.newvoicemedia.interview.game.Direction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,7 +13,7 @@ import static com.newvoicemedia.interview.game.Direction.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-@DisplayName( "Piece" )
+@DisplayName( "SimplePiece" )
 public class SimplePieceTest
 {
 

@@ -1,21 +1,27 @@
-package com.newvoicemedia.interview.game;
+package com.newvoicemedia.interview.game.board;
 
-class Board
+import com.newvoicemedia.interview.game.piece.Piece;
+import com.newvoicemedia.interview.game.piece.SimplePiece;
+
+
+public class SimpleBoard
+    implements Board
 {
-    private static final int INITIAL = 0;
+    private static final int ZERO = 0;
+    private static final int DEFAULT_SIZE = 5;
 
     private Integer size;
     private Piece piece;
-    private Coordinate position;
+    private Coordinates position;
 
 
-    Board( Integer size )
+    public SimpleBoard()
     {
-        this( size, new SimplePiece(), new Coordinate( INITIAL, INITIAL ) );
+        this( DEFAULT_SIZE, new SimplePiece(), new Coordinates( ZERO, ZERO ) );
     }
 
 
-    Board( Integer size, Piece piece, Coordinate position )
+    SimpleBoard( Integer size, Piece piece, Coordinates position )
     {
         this.size = size;
         this.piece = piece;
@@ -23,33 +29,30 @@ class Board
     }
 
 
-    void movePiece()
+    @Override
+    public void movePiece()
     {
         movePieceInARightDirection();
+    }
+
+
+    @Override
+    public Coordinates piecePosition()
+    {
+        return position;
+    }
+
+
+    @Override
+    public Piece piece()
+    {
+        return piece;
     }
 
 
     Integer size()
     {
         return size;
-    }
-
-
-    void putPiece( Piece piece )
-    {
-        this.piece = piece;
-    }
-
-
-    Piece getPiece()
-    {
-        return piece;
-    }
-
-
-    Coordinate getPosition()
-    {
-        return position;
     }
 
 
@@ -83,14 +86,14 @@ class Board
     private void moveEast()
     {
         int positionAfterMove = position.getX() + 1;
-        position.setX( positionAfterMove >= INITIAL ? positionAfterMove : position.getX() );
+        position.setX( positionAfterMove >= ZERO ? positionAfterMove : position.getX() );
     }
 
 
     private void moveSouth()
     {
         int positionAfterMove = position.getY() - 1;
-        position.setY( positionAfterMove >= INITIAL ? positionAfterMove : position.getY() );
+        position.setY( positionAfterMove >= ZERO ? positionAfterMove : position.getY() );
     }
 
 

@@ -1,6 +1,8 @@
-package com.newvoicemedia.interview.game;
+package com.newvoicemedia.interview.game.piece;
 
-import static com.newvoicemedia.interview.game.Direction.*;
+import com.newvoicemedia.interview.game.Direction;
+
+import static com.newvoicemedia.interview.game.Direction.NORTH;
 
 
 public class SimplePiece
@@ -9,15 +11,15 @@ public class SimplePiece
     private Direction direction;
 
 
-    SimplePiece( Direction direction )
-    {
-        this.direction = direction;
-    }
-
-
     public SimplePiece()
     {
         this( NORTH );
+    }
+
+
+    SimplePiece( Direction direction )
+    {
+        this.direction = direction;
     }
 
 
