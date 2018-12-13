@@ -40,14 +40,6 @@ class SimpleBoardTest
     }
 
 
-    @Test
-    @DisplayName( "should allow player to put piece on it" )
-    void shouldAllowToPutAPieceOnIt()
-    {
-        assertThat( simpleBoard.piece() ).isEqualTo( piece );
-    }
-
-
     @ParameterizedTest( name = "Case {index} Move one step to: {0} Expected position should be: {1}" )
     @MethodSource( "getMoves" )
     @DisplayName( "should allow player to move piece in different directions" )
